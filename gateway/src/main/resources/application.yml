@@ -1,0 +1,57 @@
+server:
+  port: 8080
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8091/eureka
+#spring:
+#  application:
+#    name: gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: songs
+#          uri: lb://songs/
+#          predicates:
+#            - Path=/songs/**
+#        - id: auth
+#          uri: lb://auth/
+#          predicates:
+#            - Path=/auth/**
+spring:
+  application:
+    name: gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka
+
+zuul:
+  #ignoredServices: '*'
+  routes:
+    auth:
+      sensitiveHeaders:
+      path: /auth/**
+      service-id: auth
+    songs:
+      sensitiveHeaders:
+      path: /songs/**
+      service-id: songs
+    lyrics:
+      path: /lyrics/**
+      service-id: lyrics
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 30000
+
+hystrix:
+  command:
+  default:
+    execution:
+      isolation:
+        thread:
+          timeoutInMilliseconds: 60000
+
