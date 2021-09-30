@@ -44,12 +44,12 @@ public class SongLyricsControllerTest {
 //    public void postLyricsTest() throws Exception{
 //        List<SongLyrics> songLyrics = new ArrayList<>(Arrays.asList(LYRICS));
 //
-//
+//        Mockito.when(songLyricsRepository.save(LYRICS)).thenReturn(LYRICS);
 //        Map<String, Object> lyric = new HashMap<>();
 //        lyric.put("id", 1);
-//        lyric.put("title", "It's my life");
-//        lyric.put("artist", "Bon Jovi");
-//        lyric.put("lyrics", "testtesttest");
+//        lyric.put("title", "testtitle");
+//        lyric.put("artist", "testartist");
+//        lyric.put("lyrics", "testlyrics abcdefghi");
 //
 //        String uri = "/lyrics/";
 //

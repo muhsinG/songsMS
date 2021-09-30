@@ -36,7 +36,8 @@ public class SongLyricsController {
     public ResponseEntity<?> postLyrics(@RequestBody SongLyrics newlyrics){
         if (newlyrics.getTitle() != null || newlyrics.getArtist() != null){
             SongLyrics l = lyricsRepository.save(newlyrics);
-            return new ResponseEntity<>("Location: " + "/lyrics/" + l.getId(), HttpStatus.CREATED);
+            Integer id = l.getId();
+            return new ResponseEntity<>("Location: " + "/lyrics/" + id, HttpStatus.CREATED);
         }
         return new ResponseEntity<>("Request Body wrong", HttpStatus.BAD_REQUEST);
     }
