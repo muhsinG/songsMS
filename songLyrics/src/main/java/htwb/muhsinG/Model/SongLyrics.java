@@ -24,6 +24,13 @@ public class SongLyrics {
 
     }
 
+    public SongLyrics(int id, String title, String artist, String lyrics) {
+        this.id=id;
+        this.title=title;
+        this.artist=artist;
+        this.lyrics=lyrics;
+    }
+
     @Override
     public String toString() {
         return "{" +

@@ -23,7 +23,7 @@ public class SongLyricsController {
 
     @GetMapping(value ="/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getLyrics(@PathVariable(value = "id") Integer id) throws IOException {
-        if (lyricsRepository.findById(id).isEmpty()) {
+        if (lyricsRepository.findbyId(id).isEmpty()) {
             return new ResponseEntity<>("Song Lyrics not found", HttpStatus.NOT_FOUND);
         }
         List<SongLyrics> lyricsList = lyricsRepository.findbyId(id);
