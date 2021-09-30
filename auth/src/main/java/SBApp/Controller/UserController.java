@@ -14,11 +14,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping()
-public class UserControllerDI {
+public class UserController {
 
     private final UserRepository userRepository;
 
-    public UserControllerDI(UserRepository uRepository) {
+    public UserController(UserRepository uRepository) {
         this.userRepository = uRepository;
     }
 

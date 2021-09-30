@@ -138,6 +138,8 @@ public class SongPlaylistController {
         List<SongList> songlistslist = songListRepository.findBySongListId(songlistid);
         if (songlistslist.isEmpty()) {return new ResponseEntity<>("Playlist " + songlistid + " not found", HttpStatus.NOT_FOUND);}
 
+        if (songlistslist.get(0).getOwnerId().equals(userIdFromToken)==false){return Unauthorized();}
+
         SongList playlist = songlistslist.get(0);
         playlist.setName(newplaylist.getName());
         playlist.setIsPrivate(newplaylist.getIsPrivate());
